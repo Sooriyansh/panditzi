@@ -94,6 +94,12 @@ export default function PujaBookingForm({
 
   const [loginRequired, setLoginRequired] = useState(false);
 
+  const [todayStr, setTodayStr] = useState("");
+
+  useEffect(() => {
+    setTodayStr(today());
+  }, []);
+
   const selectedService = useMemo(
     () => getPujaService(values.pujaService),
     [values.pujaService],

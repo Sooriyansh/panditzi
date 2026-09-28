@@ -11,15 +11,15 @@ const containerVariants = {
   initial: { opacity: 1 },
   exit: {
     opacity: 0,
-    transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
+    transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] as const },
   },
 };
 
-export default function LandingAnimation({ onComplete }) {
+export default function LandingAnimation({ onComplete }: { onComplete?: () => void }) {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    let completeTimer;
+    let completeTimer: ReturnType<typeof setTimeout> | undefined;
 
     const mainTimer = setTimeout(() => {
       setVisible(false);
@@ -126,7 +126,7 @@ export default function LandingAnimation({ onComplete }) {
               transition={{
                 duration: 0.9,
                 delay: 0.6,
-                ease: [0.22, 1, 0.36, 1],
+                ease: [0.22, 1, 0.36, 1] as const,
               }}
             >
               {BRAND}
@@ -174,7 +174,7 @@ export default function LandingAnimation({ onComplete }) {
                 transition={{
                   duration: 1.1,
                   delay: 1.5,
-                  ease: [0.76, 0, 0.24, 1],
+                  ease: [0.76, 0, 0.24, 1] as const,
                 }}
               />
             </motion.div>

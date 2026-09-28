@@ -85,6 +85,7 @@ function PanchangSymbol() {
 export default function HomePanchang() {
   const [data, setData] = useState<PanchangData>();
   const [failed, setFailed] = useState(false);
+  const [today, setToday] = useState("");
 
   const sectionRef = useRef<HTMLElement | null>(null);
   const shellRef = useRef<HTMLDivElement | null>(null);
@@ -92,13 +93,14 @@ export default function HomePanchang() {
   const detailsRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLAnchorElement | null>(null);
 
-  const today = new Date().toISOString().slice(0, 10);
-
   useEffect(() => {
+    const todayStr = new Date().toISOString().slice(0, 10);
+    setToday(todayStr);
+
     const controller = new AbortController();
 
     void fetch(
-      `/api/panchang?view=details&date=${today}&${defaultQuery}`,
+      `/api/panchang?view=details&date=${todayStr}&${defaultQuery}`,
       {
         signal: controller.signal,
       },
@@ -123,7 +125,7 @@ export default function HomePanchang() {
       });
 
     return () => controller.abort();
-  }, [today]);
+  }, []);
 
   /*
    * GSAP entrance animation
@@ -334,7 +336,7 @@ export default function HomePanchang() {
               <span className="mr-2 h-1.5 w-1.5 rounded-full bg-[#b67a25]" />
 
               <p className="text-xs font-semibold text-[#70401f] sm:text-sm">
-                {dateFormatter.format(new Date(`${today}T12:00:00`))}
+                {today ? dateFormatter.format(new Date(`${today}T12:00:00`)) : "\u00A0"}
               </p>
             </div>
 

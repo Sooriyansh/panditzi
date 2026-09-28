@@ -263,6 +263,11 @@ export default function KundaliAnalysis() {
   const [question, setQuestion] = useState("");
   const [chatBusy, setChatBusy] = useState(false);
   const [chat, setChat] = useState<Array<{ q: string; a: string }>>([]);
+  const [todayDate, setTodayDate] = useState("");
+
+  useEffect(() => {
+    setTodayDate(new Date().toISOString().slice(0, 10));
+  }, []);
 
   useEffect(() => {
     if (query.trim().length < 2 || place?.label === query) return;
@@ -509,7 +514,7 @@ export default function KundaliAnalysis() {
                   <input
                     required
                     type="date"
-                    max={new Date().toISOString().slice(0, 10)}
+                    max={todayDate || undefined}
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
                     className="min-h-14 rounded-2xl border border-[#dfc6a4] bg-[#fffaf3] px-4 text-[15px] text-[#51230f] outline-none transition focus:border-[#a85e25] focus:bg-white focus:ring-4 focus:ring-[#a85e25]/10"

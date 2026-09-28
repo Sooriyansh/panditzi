@@ -53,7 +53,7 @@ const quickPoints = [
 ];
 
 export default function FAQSection() {
-  const [open, setOpen] = useState(0);
+  const [open, setOpen] = useState<number | null>(0);
 
   return (
     <section
