@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { getPujaService, type PujaService } from "@/data/puja-services";
+import { getPujaService, pujaServicePath, type PujaService } from "@/data/puja-services";
 
 function Reveal({
   children,
@@ -286,7 +286,7 @@ export default function PujaServicePage({ service }: { service: PujaService }) {
             {related.map((item) => (
               <Link
                 key={item.id}
-                href={`/puja-services/${item.id}`}
+                href={pujaServicePath(item)}
                 className="group rounded-2xl border border-[#ead6b9] bg-[#fffdf9] p-6 shadow-sm transition hover:-translate-y-1 hover:border-[#d6a55d] hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#a35420]"
               >
                 <span className="text-2xl">{item.icon}</span>

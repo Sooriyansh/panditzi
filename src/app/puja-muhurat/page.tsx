@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
-
 import InformationalPage from "@/components/InformationalPage";
+import { generatePageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = generatePageMetadata({
   title: "पूजा मुहूर्त | उज्जैन",
   description:
     "पूजा, अनुष्ठान और धार्मिक सेवाओं के लिए तिथि एवं मुहूर्त संबंधी पारंपरिक मार्गदर्शन प्राप्त करें।",
-};
+  path: "/puja-muhurat",
+});
 
 export default function PujaMuhuratPage() {
   return (

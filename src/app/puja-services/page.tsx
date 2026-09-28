@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { pujaServices } from "@/data/puja-services";
+import { pujaServicePath, pujaServices } from "@/data/puja-services";
 import { generatePageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = generatePageMetadata({
@@ -117,7 +117,7 @@ export default function PujaServicesPage() {
           {pujaServices.map((service, index) => (
             <Link
               key={service.id}
-              href={`/puja-services/${service.id}`}
+              href={pujaServicePath(service)}
               className="
                 group
                 relative
