@@ -210,7 +210,7 @@ function LanguageSwitcher({
           }
         `}
       >
-        हिं
+        हिन्दी
       </button>
 
       <button
@@ -233,7 +233,7 @@ function LanguageSwitcher({
           }
         `}
       >
-        EN
+        English
       </button>
     </div>
   );

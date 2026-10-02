@@ -17,3 +17,11 @@ body {
   color: var(--foreground);
   font-family: "Noto Sans Devanagari", "Nirmala UI", "Mangal", Arial, sans-serif;
 }
+
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
