@@ -81,7 +81,7 @@ export default function SiteFooter() {
             </h2>
 
             <address className="mt-5 not-italic text-sm leading-7 text-[#F5DEC3]/75">
-              <p>{siteConfig.location}</p>
+              <p>Char Dham Mandir, Jaysignh Nagar, Ujjain, Madhya Pradesh, India</p>
 
               <a
                 className="mt-2 block w-fit transition-colors duration-200 hover:text-[#D9B56A]"
